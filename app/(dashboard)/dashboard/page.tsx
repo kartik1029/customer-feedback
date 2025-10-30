@@ -25,12 +25,16 @@ export default async function DashboardPage() {
     "Chole Bhature",
   ];
 
-  // Average rating calculation
-  const getAverageRating = (dish: string) => {
-    // Here we use all ratings as dummy link for now
-    // Later you can map dish->rating when you collect per-item data
-    if (customers.length === 0) return 0;
-    const avg = customers.reduce((acc, c) => acc + c.rating, 0) / customers.length;
+  // ✅ Average rating per foodItem (only if customers rated that foodItem)
+  const getAverageRating = (foodItem: string) => {
+    const foodItemRatings = customers
+      .filter((c) => c.foodItem === foodItem && c.rating)
+      .map((c) => c.rating);
+
+    if (foodItemRatings.length === 0) return null; // no rating yet
+
+    const avg =
+      foodItemRatings.reduce((acc, r) => acc + r, 0) / foodItemRatings.length;
     return avg.toFixed(1);
   };
 
@@ -73,19 +77,25 @@ export default async function DashboardPage() {
       {/* Food Insights */}
       <div>
         <h2 className="text-xl font-semibold text-gray-800 mb-4">
-          Average Ratings for Indian Dishes
+          Average Ratings for Indian foodItemes
         </h2>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-          {foods.map((dish) => (
-            <div key={dish} className="bg-white rounded-lg shadow p-5">
-              <h3 className="font-semibold text-gray-800 mb-2">{dish}</h3>
-              {renderStars(Math.round(Number(getAverageRating(dish))))}
-              <p className="text-sm text-gray-500 mt-1">
-                Avg Rating: {getAverageRating(dish)} ⭐
-              </p>
-            </div>
-          ))}
+          {foods
+            .map((foodItem) => {
+              const avg = getAverageRating(foodItem);
+              if (!avg) return null; // hide foodItemes with no rating
+
+              return (
+                <div key={foodItem} className="bg-white rounded-lg shadow p-5">
+                  <h3 className="font-semibold text-gray-800 mb-2">{foodItem}</h3>
+                  {renderStars(Math.round(Number(avg)))}
+                  <p className="text-sm text-gray-500 mt-1">
+                    Avg Rating: {avg} ⭐
+                  </p>
+                </div>
+              );
+            })}
         </div>
       </div>
     </div>
