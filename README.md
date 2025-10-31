@@ -55,3 +55,7 @@ Open http://localhost:3000
 🌐 Deployment
 
 This project is deployed on Vercel, which automatically builds and hosts both frontend and backend routes directly from your GitHub repository.
+
+# User Credentials for Login:
+## Username: admin@test.com
+## Password: admin123
