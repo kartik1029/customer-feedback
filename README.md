@@ -1,36 +1,57 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Customer Feedback System
 
-## Getting Started
+The Customer Feedback System is a full-stack web application built with Next.js, TypeScript, and MongoDB that enables businesses to collect, store, and manage customer feedback efficiently.
+It provides an easy-to-use platform for users to log in, submit reviews for food items, and rate their experience. Admins can view all customer feedback entries in a structured dashboard, allowing data-driven insights for improving services and user satisfaction.
 
-First, run the development server:
+# Features
 
-```bash
+ Secure Authentication using NextAuth.js
+
+ Submit Feedback with name, email, location, food item, rating, and review
+
+ Admin Dashboard to view all customer feedback
+
+ Fast API Routes powered by Next.js App Router
+
+ MongoDB Integration for seamless data storage
+
+ Responsive UI built with Tailwind CSS
+
+# Tech Stack
+Category	Technology
+Frontend	Next.js 14, TypeScript, Tailwind CSS
+Backend	Next.js API Routes, Node.js
+Database	MongoDB, Mongoose
+Authentication	NextAuth.js (Credentials Provider)
+Deployment	Vercel
+⚙️ How to Run Locally
+
+Clone the repository
+
+git clone https://github.com/kartik1029/customer-feedback.git
+cd customer-feedback
+
+
+Install dependencies
+
+npm install
+
+
+Create .env.local file in the root folder and add:
+
+MONGODB_URI="mongodb+srv://kartik:kartik123@customerfeedback.2gxpqnk.mongodb.net/customer_feedback_db"
+NEXTAUTH_SECRET="6c740a879b72134f877dac803d6576b3"
+NEXTAUTH_URL="http://localhost:3000"
+
+
+Run the development server
+
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+Open http://localhost:3000
+ in your browser.
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+🌐 Deployment
 
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+This project is deployed on Vercel, which automatically builds and hosts both frontend and backend routes directly from your GitHub repository.
