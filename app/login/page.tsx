@@ -34,9 +34,6 @@ export default function LoginPage() {
         <h1 className="text-3xl font-bold text-gray-800 text-center mb-4">
           Customer Feedback System
         </h1>
-        <p className="text-gray-600 text-center mb-10 text-sm">
-          Welcome Back — Access Your Account
-        </p>
 
         <form
           onSubmit={handleSubmit}
@@ -95,7 +92,9 @@ export default function LoginPage() {
         </form>
 
         <p className="text-gray-500 mt-10 text-center text-sm">
-          © {new Date().getFullYear()} Aarogya Aadhar
+          © {new Date().getFullYear()} Aarogya Aadhar<br></br>
+          <b>Demo Login Credentials<br></br> 
+          User: admin@test.com Pass: admin123</b>
         </p>
       </div>
     </div>
